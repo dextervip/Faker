@@ -2,6 +2,8 @@
 
 namespace Faker\Provider\pt_BR;
 
+use Faker\Provider\Lorem;
+
 /**
  * Product Provider
  *
@@ -87,11 +89,43 @@ class Product extends \Faker\Provider\Base {
     }
     
     /**
+     * @example '120.00'
+     */
+    public static function price()
+    {
+        return static::randomFloat(2, 10, 500);
+    }
+    
+    /**
+     * @example '2012'
+     */
+    public static function year()
+    {
+        return static::randomNumber(1989, (new \DateTime())->format('Y'));
+    }
+    
+    /**
      * @example '10x10x10'
      */
     public static function dimension()
     {
         return static::numerify(static::randomElement(static::$dimensionFormats));
+    }
+    
+    /**
+     * @example 'Lorem Ist....'
+     */
+    public static function description()
+    {
+        return Lorem::paragraphs(5,true);
+    }
+    
+    /**
+     * @example 'Lorem Ist....'
+     */
+    public static function shortDescription()
+    {
+        return Lorem::sentence();
     }
     
 
