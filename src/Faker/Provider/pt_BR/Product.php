@@ -101,7 +101,8 @@ class Product extends \Faker\Provider\Base {
      */
     public static function year()
     {
-        return static::randomNumber(1989, (new \DateTime())->format('Y'));
+        $date = new \DateTime();
+        return static::randomNumber(1989, $date->format('Y'));
     }
     
     /**
