@@ -99,4 +99,20 @@ class Person extends \Faker\Provider\Person
     {
         return static::randomElement(static::$suffix);
     }
+    
+    /**
+     * @example 'http://www.facebook.com/joao.pedro'
+     */
+    public static function facebookProfile()
+    {
+        return 'http://www.facebook.com/'. strtolower(self::firstName()).'.'.strtolower(self::lastName());
+    }
+    
+    /**
+     * @example 'http://www.twitter.com/joao.pedro'
+     */
+    public static function twitterProfile()
+    {
+        return 'http://www.twitter.com/'. strtolower(self::firstName()).'.'.strtolower(self::lastName());
+    }
 }
